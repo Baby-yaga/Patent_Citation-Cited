@@ -16,7 +16,7 @@ road = "E:/20250726专利数据-Rstata/"
 # 读取和处理数据
 for year in tqdm(range(1985,2022)):
     data_normal = pd.read_csv(input_road + "{}.csv".format(str(year)),sep = "|")
-    data_normal = data_normal[['申请日', '申请号', '公开号', '公开日']]
+    data_normal = data_normal[['申请日', '申请号', '公开号', '公开日', '申请人省份(中国)', '申请人城市(中国)', '国民经济分类']]
     data_normal['year'] = data_normal['公开日'].apply(lambda x:x[0:4])
     open_dates = list(set(data_normal['year'].to_list()))
     for date in open_dates:
